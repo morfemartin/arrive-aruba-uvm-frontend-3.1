@@ -167,6 +167,14 @@ a:hover { color: var(--azul-zafiro-profundo); }
 
 .seccion { padding-block: var(--espacio-7); }
 
+/* Los destinos de enlaces internos respiran por debajo de la
+   cabecera fija: sin este margen, el ancla queda escondida
+   detrás de la barra sticky. */
+main,
+[id] {
+  scroll-margin-top: 88px;
+}
+
 /* Bandas alternas para el ritmo vertical de la página */
 .banda-blanca {
   background-color: var(--color-superficie);
