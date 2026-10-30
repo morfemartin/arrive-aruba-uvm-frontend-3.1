@@ -1,0 +1,34 @@
+# ==============================================================
+# Validación automática de las páginas HTML del proyecto.
+# En cada push se ejecuta el validador oficial del W3C
+# (Nu Html Checker) sobre todas las páginas del sitio.
+# ==============================================================
+name: Validación HTML (W3C Nu Html Checker)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validar:
+    name: Validar páginas HTML
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Descargar Nu Html Checker (vnu.jar)
+        run: |
+          wget -q -O vnu.zip https://github.com/validator/validator/releases/download/latest/vnu.jar.latest.zip
+          unzip -q vnu.zip
+
+      - name: Validar todas las páginas HTML
+        run: java -jar dist/vnu.jar *.html
