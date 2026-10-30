@@ -1,0 +1,19 @@
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+
+# Dependencias y salidas de construcción (preparado para la e-actividad 3.2, webpack)
+node_modules/
+dist/
+build/
+
+# Entorno local y credenciales (nunca se suben al repositorio)
+.env
+.env.*
+*.log
