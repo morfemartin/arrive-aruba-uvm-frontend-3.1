@@ -50,7 +50,12 @@ graph TD
     T1 --> IN["&lt;p.introduccion&gt;"]
     T1 --> AC["&lt;div.hero__acciones&gt; × 2 botones"]
     R1 --> FG["&lt;figure.hero__ventana aria-hidden&gt;"]
-    FG --> VE["&lt;div.ventana&gt; (sol y mar en CSS)"]
+    FG --> VE["&lt;div.ventana&gt; (fotografía de Aruba + sol, mezcladas con CSS)"]
+
+    MA --> S1B["&lt;section.pelicula&gt; Atmósfera de la isla"]
+    S1B --> IF["&lt;img.pelicula__foto&gt; (Ken Burns en CSS)"]
+    S1B --> VL["&lt;div.pelicula__velo&gt;"]
+    S1B --> LM["&lt;p.pelicula__lema&gt;"]
 
     MA --> S2["&lt;section&gt; Prendas destacadas"]
     S2 --> RP["&lt;div.rejilla-productos&gt;"]
@@ -74,7 +79,7 @@ graph TD
     FO --> LG["&lt;p.pie__legal&gt;"]
 ```
 
-*El árbol completo de `index.html` tiene ~180 nodos; el diagrama resume
+*El árbol completo de `index.html` tiene ~182 nodos; el diagrama resume
 la jerarquía funcional y la profundidad media del documento.*
 
 ## 3 · Esqueleto común a las seis páginas
@@ -107,3 +112,4 @@ body → … → script js/bd.js → script js/{pagina}.js
    y localizar desde el elemento visible (clic derecho → *Inspect*).
 4. En **Console**, `document.querySelector("main")` devuelve el nodo
    raíz del contenido; `\$0` es el nodo seleccionado en el panel.
+

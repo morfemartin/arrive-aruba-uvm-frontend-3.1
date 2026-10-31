@@ -59,14 +59,29 @@
     <section class="contenedor producto" aria-labelledby="titulo-producto">
       <div class="producto__rejilla">
 
-        <!-- Panel visual: azulejo grande con la silueta de la prenda -->
-        <figure class="producto__panel tono-zafiro" aria-hidden="true">
-          <svg class="producto__silueta" viewBox="0 0 64 72">
-            <path d="M22 5 L32 11 L42 5 L56 11 L49 28 L43 24 V68 H21 V24 L15 28 L8 11 Z"
-                  fill="#2c4e78" opacity="0.9"/>
-            <path d="M22 5 L32 11 L42 5 L37 14 H27 Z" fill="#f0f0e5"/>
-          </svg>
-          <figcaption class="solo-lectores">Silueta de la camisa Sunset Wharf</figcaption>
+        <!-- Panel visual: la colección en contexto, tres vistas del
+             editorial de la marca. El visor cambia de vista con
+             :checked — una galería que funciona entera sin JavaScript. -->
+        <figure class="producto__panel tono-zafiro">
+          <input class="producto__visor" type="radio" name="visor" id="visor-1" checked>
+          <input class="producto__visor" type="radio" name="visor" id="visor-2">
+          <input class="producto__visor" type="radio" name="visor" id="visor-3">
+
+          <div class="producto__vistas">
+            <img class="producto__foto" src="assets/img/sunset-01.jpg"
+                 alt="Editorial de la colección: el resort bajo la luz de la isla">
+            <img class="producto__foto" src="assets/img/sunset-02.jpg"
+                 alt="Editorial de la colección junto al mar">
+            <img class="producto__foto" src="assets/img/sunset-03.jpg"
+                 alt="El lema de la marca sobre el paisaje de la isla">
+          </div>
+
+          <div class="producto__pulgar" role="group" aria-label="Vistas del editorial">
+            <label for="visor-1"><img src="assets/img/sunset-01.jpg" alt="Ver el editorial del resort"></label>
+            <label for="visor-2"><img src="assets/img/sunset-02.jpg" alt="Ver el editorial de la playa"></label>
+            <label for="visor-3"><img src="assets/img/sunset-03.jpg" alt="Ver el banner de la isla"></label>
+          </div>
+          <figcaption class="solo-lectores">La colección en su contexto — editorial de la marca</figcaption>
         </figure>
 
         <!-- Panel de información -->
@@ -246,3 +261,4 @@
   </footer>
 </body>
 </html>
+

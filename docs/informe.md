@@ -15,7 +15,10 @@ de la marca Arrive Aruba (proyecto propio del primer autor), aplicando las
 propiedades esenciales de CSS: sistema de tokens con custom properties,
 maquetación con Grid y Flexbox, efectos con `transition`/`transform`,
 animaciones con `@keyframes` y una base de datos del navegador (Web Storage
-API) que almacena las reservas del formulario. El sitio es estático: se abre
+API) que almacena las reservas del formulario. El sitio incorpora además la
+fotografía propia de la marca (carpeta `assets/`), presentada con CSS puro:
+mezcla con `background-blend-mode`, encuadre con `object-fit`, movimiento
+Ken Burns con `@keyframes` y velos degradados. El sitio es estático: se abre
 sin instalar nada y se publica tal cual en GitHub.
 
 ## 2 · Cómo funciona la web
@@ -31,6 +34,10 @@ en cascada en todas las páginas:
    tablas y pie.
 3. **`css/{pagina}.css`** — una hoja fina por página con sus estilos
    exclusivos (hero de inicio, rejilla del catálogo, ficha del producto…).
+
+Las **fotografías de la marca** viven en `assets/img/` y se insertan desde
+el HTML; su presentación — mezcla con la paleta, encuadre, movimiento y
+velos — es enteramente CSS, como se detalla en la sección 3.6.
 
 **Flujo de una reserva, de punta a punta:** el visitante llega a la landing
 (`index.html`), recorre el catálogo (`catalogo.html`), entra al detalle de
@@ -62,18 +69,24 @@ estandarizó con una sola curva `ease-out` calma.
 
 ### 3.2 · La ventana del avión (`css/inicio.css`)
 
-El hero no usa imágenes: la ventanilla del avión se dibuja apilando
-degradados radiales y animándolos con `@keyframes`:
+La ventanilla del avión es el motivo de marca. Hoy su interior muestra la
+**fotografía real de Aruba** mezclada con el degradado del atardecer
+mediante `background-blend-mode`; el sol y el vaivén siguen siendo CSS:
 
 ```css
 .ventana__mar {
   border-radius: 50%;
   background:
-    radial-gradient(circle at 62% 30%, #f5a169 0%, #e88b5a 9%, transparent 26%),
-    linear-gradient(180deg, #5f8bb8 0%, #386395 46%, #2c4e78 62%, #1c2b3a 100%);
+    radial-gradient(circle at 62% 30%, rgba(245, 161, 105, 0.55) 0%, transparent 26%),
+    linear-gradient(180deg, #5f8bb8 0%, #386395 46%, #2c4e78 62%, #1c2b3a 100%),
+    url("../assets/img/aruba-hero.jpg") center / cover no-repeat;
+  background-blend-mode: screen, soft-light, normal;
   animation: mecerse 12s ease-in-out infinite alternate;
 }
 ```
+
+Si la fotografía aún no carga, los dos degradados dibujan el mismo
+atardecer: la ventanilla nunca queda vacía.
 
 ### 3.3 · El módulo de base de datos (`js/bd.js`)
 
@@ -124,6 +137,26 @@ validación se llama `BD.guardar(...)` y se muestra el mensaje de éxito con
 el enlace a «Mis pedidos». El formulario precarga la prenda cuando se llega
 desde la ficha del producto (parámetro \`?prenda=\` en la URL).
 
+### 3.6 · La fotografía de marca presentada con CSS
+
+El archivo visual de Arrive Aruba aporta paisaje, atmósfera y editoriales.
+Todos los medios entran como **contenido** desde `assets/img/`, y el CSS
+los presenta en tres piezas:
+
+1. **Banda de atmósfera del inicio**: la fotografía del hero de la marca
+   cubre la pantalla con `object-fit: cover` y se mueve despacio con un
+   Ken Burns (`@keyframes` de escala y traslación). Un velo degradado con
+   `mix-blend-mode: multiply` garantiza la lectura del lema sobre
+   cualquier zona de la foto, y con `prefers-reduced-motion` la imagen
+   queda en reposo.
+2. **Visor del editorial en la ficha**: tres vistas apiladas que se funden
+   por opacidad; el radio `:checked` decide cuál sube al frente — la
+   misma técnica sin JavaScript de los filtros del catálogo. Los pulgares
+   flotan sobre la fotografía con `backdrop-filter`.
+3. **Las tarjetas del catálogo conservan las siluetas SVG propias de la
+   marca**: el archivo visual no incluye fotografía de producto por prenda,
+   y los gráficos dibujados a mano mantienen la rejilla uniforme.
+
 ## 4 · Problemas hallados y cómo se resolvieron
 
 | # | Problema | Solución |
@@ -132,17 +165,21 @@ desde la ficha del producto (parámetro \`?prenda=\` en la URL).
 | 2 | Los módulos ES (`import`/`export`) no funcionan abriendo el sitio con `file://` (política de origen del navegador). | Se usaron scripts clásicos y un objeto global `window.BD`: el sitio funciona con doble clic, sin servidor. |
 | 3 | `localStorage` puede contener JSON dañado (por ejemplo, si el usuario lo edita a mano en DevTools) y romper la página al arrancar. | La lectura se protege con `try/catch`: ante datos inválidos, la base arranca limpia en lugar de fallar. |
 | 4 | Una primera versión del historial dibujaba las tarjetas con `innerHTML`, lo que permitiría inyectar HTML desde los campos del formulario. | Se reescribió con `createElement` + `textContent`: el texto del usuario nunca se interpreta como marcado. |
-| 5 | Sin fotografías reales de las prendas (peso, licencias) las tarjetas quedaban vacías. | Cada prenda usa un azulejo con degradado de la paleta y una silueta propia en SVG — gráficos ligeros, originales y consistentes. |
+| 5 | El archivo visual de la marca no tiene fotografía de producto por prenda: montar los pocos editoriales en las ocho tarjetas las haría repetitivas y desiguales. | Las tarjetas conservan las siluetas SVG propias de marca; la fotografía real se presenta en la ventana del hero, la banda de atmósfera y el visor del editorial, donde habla de la colección en contexto. |
 | 6 | El texto sobre crema perdía legibilidad con tonos medios de la paleta. | Se definió una tinta propia (zafiro muy oscurecido, `#1c2b3a`) para contraste alto — el texto nunca es negro puro ni color de acento. |
+| 7 | Los pulgares del visor debían leerse sobre la fotografía grande sin taparla. | Se montó una banda flotante con `backdrop-filter` y `z-index: 1`, anclada abajo del panel: la foto respira detrás y el control queda siempre visible. |
+| 8 | El hero del proyecto matriz de la marca anima su atmósfera con una secuencia de 36 fotogramas dirigida por JavaScript; esta actividad pide HTML y CSS. | La atmósfera se recreó con un Ken Burns (`@keyframes`) sobre la fotografía aprobada de marca, y `prefers-reduced-motion` deja la imagen fija: movimiento elegante sin una línea de JS. |
 
 ## 5 · Propiedades CSS cubiertas
 
 El mapa completo, propiedad por propiedad y con el archivo donde verla,
 está en el [README del repositorio](../README.md). El resumen: custom
 properties, Grid, Flexbox, `position: sticky`, `backdrop-filter`,
-degradados, `transition`, `transform`, `@keyframes`, pseudo-clases de
-interacción (`:hover`, `:focus-visible`, `:checked`), pseudo-elementos,
-`clamp()`, `aspect-ratio` y `@media (prefers-reduced-motion)`.
+degradados, `transition`, `transform`, `@keyframes` (incluido el Ken Burns
+de la atmósfera), pseudo-clases de interacción (`:hover`, `:focus-visible`,
+`:checked`), pseudo-elementos, `clamp()`, `aspect-ratio`, `object-fit`,
+`background-blend-mode`, `mix-blend-mode`, `filter` y
+`@media (prefers-reduced-motion)`.
 
 ## 6 · Reparto del trabajo (evaluación individual)
 
@@ -176,6 +213,12 @@ https://developer.mozilla.org/es/docs/Web/API/Web_Storage_API/Using_the_Web_Stor
 MDN Web Docs. (2026). *backdrop-filter*. Mozilla.
 https://developer.mozilla.org/es/docs/Web/CSS/backdrop-filter
 
+MDN Web Docs. (2026). *object-fit*. Mozilla.
+https://developer.mozilla.org/es/docs/Web/CSS/object-fit
+
+MDN Web Docs. (2026). *mix-blend-mode*. Mozilla.
+https://developer.mozilla.org/es/docs/Web/CSS/mix-blend-mode
+
 MDN Web Docs. (2026). *Usando custom properties (variables) en CSS*. Mozilla.
 https://developer.mozilla.org/es/docs/Web/CSS/Using_CSS_custom_properties
 
@@ -183,3 +226,4 @@ World Wide Web Consortium. (2026). *CSS Snapshot 2026*. W3C.
 https://www.w3.org/TR/CSS/
 
 WHATWG. (2026). *HTML: Living Standard*. https://html.spec.whatwg.org/
+

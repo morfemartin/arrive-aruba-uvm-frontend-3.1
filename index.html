@@ -52,8 +52,9 @@
   <main id="contenido">
 
     <!-- ====================== HERO ====================== -->
-    <!-- La ventana del avión: motivo central de la marca, dibujado
-         solo con degradados CSS (radial-gradient por capas). -->
+    <!-- La ventana del avión: motivo central de la marca. El paisaje
+         real de Aruba se mezcla con el degradado del atardecer usando
+         background-blend-mode; el sol y el vaivén siguen siendo CSS. -->
     <section class="hero" aria-labelledby="titulo-principal">
       <div class="contenedor hero__rejilla">
         <div class="hero__texto">
@@ -78,6 +79,17 @@
           <figcaption class="solo-lectores">Ventana del avión observando el atardecer de Aruba</figcaption>
         </figure>
       </div>
+    </section>
+
+    <!-- ====================== ATMÓSFERA DE LA ISLA ====================== -->
+    <!-- Banda a pantalla completa con la fotografía del hero de la
+         marca: el movimiento lento (Ken Burns) y el velo que garantiza
+         la lectura del lema son enteramente CSS. -->
+    <section class="pelicula" aria-label="Atmósfera de la isla de Aruba">
+      <img class="pelicula__foto" src="assets/img/atmosfera.jpg"
+           alt="Atmósfera de Aruba al atardecer, fotografía de la marca">
+      <div class="pelicula__velo" aria-hidden="true"></div>
+      <p class="pelicula__lema">«The island stays with you.»</p>
     </section>
 
     <!-- ====================== DESTACADOS ====================== -->
@@ -332,3 +344,4 @@
   </footer>
 </body>
 </html>
+

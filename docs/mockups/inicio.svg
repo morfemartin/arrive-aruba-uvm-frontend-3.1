@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" font-family="Arial, Helvetica, sans-serif" role="img" aria-labelledby="t d">
   <!-- Mockup · Página de INICIO (landing) · e-actividad 3.1 (realizado por Martin Morfe Flores.°.) -->
   <title id="t">Mockup · Inicio · Arrive Aruba</title>
-  <desc id="d">Maqueta de la landing page de Arrive Aruba: hero con ventana, productos destacados, categorías, materialidad, testimonios y llamado.</desc>
+  <desc id="d">Maqueta de la landing page de Arrive Aruba: hero con ventana sobre la fotografía de Aruba, banda de atmósfera con Ken Burns, productos destacados, categorías, materialidad, testimonios y llamado.</desc>
   <rect width="1280" height="800" fill="#f0f0e5"/>
 
   <!-- Cabecera -->
@@ -32,6 +32,10 @@
     </linearGradient>
   </defs>
   <circle cx="1000" cy="200" r="26" fill="#f5a169" opacity="0.9"/>
+  <!-- Banda de atmósfera: fotografía con Ken Burns + velo degradado -->
+  <rect x="70" y="384" width="1140" height="24" rx="8" fill="#2c4e78" opacity="0.85"/>
+  <rect x="70" y="384" width="1140" height="24" rx="8" fill="none" stroke="#386395" stroke-dasharray="4 4"/>
+  <text x="82" y="400" font-size="9" fill="#f0f0e5" letter-spacing="2">ATMÓSFERA DE LA ISLA · Ken Burns + velo degradado</text>
   <text x="70" y="430" font-size="12" fill="#5f8bb8" letter-spacing="2">DESTACADOS DE LA TEMPORADA</text>
   <rect x="70" y="440" width="200" height="24" rx="8" fill="#1c2b3a"/>
 
@@ -69,3 +73,4 @@
   <rect x="880" y="758" width="115" height="8" rx="4" fill="#f0f0e5" opacity="0.7"/>
   <text x="640" y="790" font-size="10" fill="#f0f0e5" opacity="0.7">© 2026 Arrive Aruba · e-actividad 3.1 · Mockup 1/6</text>
 </svg>
+

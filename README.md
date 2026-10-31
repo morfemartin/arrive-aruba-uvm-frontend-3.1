@@ -14,6 +14,10 @@
   <a href="https://github.com/morfemartin/arrive-aruba-uvm-frontend-3.1/actions/workflows/validate.yml"><img src="https://github.com/morfemartin/arrive-aruba-uvm-frontend-3.1/actions/workflows/validate.yml/badge.svg" alt="Validación HTML en GitHub Actions"></a>
 </p>
 
+<p align="center">
+  🛬 <a href="https://morfemartin.github.io/arrive-aruba-uvm-frontend-3.1/"><strong>Ver el sitio publicado en GitHub Pages</strong></a>
+</p>
+
 ---
 
 ## Contexto académico
@@ -51,9 +55,16 @@ del navegador (Web Storage API) y cada entrega se revisa página por página.
   nosotros e historial de pedidos.
 - **Sistema de diseño con custom properties**: toda la paleta, espaciados, sombras y
   movimiento viven como tokens en `css/base.css`.
-- **La ventana del avión**: hero ilustrado 100 % con degradados y animaciones CSS, sin imágenes.
+- **La ventana del avión**: hero con la fotografía real de Aruba mezclada con el degradado
+  del atardecer (`background-blend-mode`), más el sol y el vaivén animados en CSS.
+- **Banda de atmósfera**: la fotografía del hero de la marca a pantalla completa con
+  movimiento lento *Ken Burns* (`@keyframes`) y velo degradado (`mix-blend-mode`) para que
+  el lema se lea siempre.
+- **Editorial de marca en la ficha**: un visor de tres vistas que cambia con `:checked`,
+  sin JavaScript, con pulgares flotantes sobre la fotografía (`backdrop-filter`).
 - **Efectos CSS** en cada interacción: elevación de tarjetas, subrayado animado del menú,
-  chips de filtro, desenfoque de la cabecera (`backdrop-filter`).
+  chips de filtro, desenfoque de la cabecera (`backdrop-filter`) y fotografías tratadas
+  con `filter` y `object-fit`.
 - **Base de datos real en el navegador**: el formulario valida y guarda cada reserva con
   `localStorage`; la página «Mis pedidos» lista, muestra y elimina registros.
 - **Comentarios explicativos** en el código donde la lógica lo amerita.
@@ -63,9 +74,9 @@ del navegador (Web Storage API) y cada entrega se revisa página por página.
 
 ```text
 arrive-aruba-uvm-frontend-3.1/
-├── index.html            ← landing: hero, destacados, categorías, testimonios
+├── index.html            ← landing: hero con ventana, banda de atmósfera, destacados, categorías, testimonios
 ├── catalogo.html         ← catálogo con filtros por categoría
-├── producto.html          ← ficha de la prenda destacada
+├── producto.html          ← ficha de la prenda con visor de vistas (:checked)
 ├── formulario.html       ← reserva: formulario con validación → base de datos
 ├── nosotros.html         ← historia, valores y proceso de la marca
 ├── historial.html        ← «Mis pedidos»: lectura de la base de datos
@@ -82,6 +93,8 @@ arrive-aruba-uvm-frontend-3.1/
 │   ├── bd.js             ← módulo de base de datos (localStorage)
 │   ├── formulario.js     ← validación y guardado de reservas
 │   └── historial.js      ← dibujado y borrado de pedidos
+├── assets/
+│   └── img/              ← fotografías de la marca: paisaje del hero y editoriales de la colección
 └── docs/
     ├── arbol-dom.md      ← árbol DOM del HTML (entregable)
     ├── arbol-cssom.md    ← árbol CSSOM (entregable)
@@ -144,6 +157,11 @@ Abre `http://localhost:8000` en tu navegador.
 | Pseudo-clases (`:hover`, `:focus-visible`, `:checked`) | Menú, foco accesible, tallas radiales |
 | Pseudo-elementos (`::after`, `::selection`) | Subrayado del menú, selección de texto |
 | `clamp()` y `aspect-ratio` | Tipografía fluida y proporciones de figuras |
+| `object-fit` | Fotografías encuadradas sin deformarse (banda de atmósfera, visor) |
+| `background-blend-mode` y `mix-blend-mode` | Foto real mezclada con el atardecer del hero; velo sobre la banda |
+| `filter` en fotografías | Saturación y contraste afinados sobre los medios de marca |
+| Ken Burns con `@keyframes` | Movimiento lento de la fotografía en la banda de atmósfera |
+| Galería de vistas con `:checked` | Ficha de producto: cambia de vista sin JavaScript |
 | `@media (prefers-reduced-motion)` | Respeto por la preferencia de movimiento reducido |
 
 ## Entregables documentales
@@ -167,9 +185,10 @@ Las seis maquetas del sitio se consolidaron en Figma a partir de los SVG de `doc
 
 La identidad visual (paleta, tipografía y narrativa) proviene del proyecto personal de
 marca del autor **Arrive Aruba**, adaptada y simplificada a mano para esta actividad.
-No se usó ninguna plantilla. Las siluetas de prendas y la ventana del hero son gráficos
-propios dibujados en SVG y CSS. Las tipografías (Cormorant Garamond y Geologica) son
-fuentes libres servidas desde Google Fonts con licencia OFL.
+No se usó ninguna plantilla. Las fotografías (paisaje del hero, atmósfera y editoriales)
+provienen del archivo visual propio de la marca; el favicon y las siluetas de las prendas
+son gráficos propios dibujados en SVG y CSS. Las tipografías (Cormorant Garamond y
+Geologica) son fuentes libres servidas desde Google Fonts con licencia OFL.
 
 ## Estado
 
@@ -177,3 +196,5 @@ fuentes libres servidas desde Google Fonts con licencia OFL.
 |---|---|
 | e-actividad 3.1 (HTML & CSS) | ✅ Entregada — tag `e3.1` |
 | Validación W3C | ✅ Automatizada en cada push (GitHub Actions) |
+| Sitio publicado | ✅ GitHub Pages — rama `main` desde la raíz |
+

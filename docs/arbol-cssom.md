@@ -40,7 +40,7 @@ graph TD
     end
 
     subgraph HOJA3 ["③ css/{pagina}.css · capa de página"]
-      SS3["CSSStyleSheet"] --> R10["estilos exclusivos de la página (hero, rejillas, ficha…)"]
+      SS3["CSSStyleSheet"] --> R10["estilos exclusivos de la página (hero, atmósfera, visor :checked, rejillas, ficha…)"]
     end
 ```
 
@@ -74,6 +74,7 @@ componente las declara a propósito.
 | `:root` | (0,1,0) | declaración de tokens |
 | `.tarjeta` | (0,1,0) | estado de reposo |
 | `.tarjeta:hover` | (0,2,0) | interacción |
+| `#visor-1:checked ~ .producto__vistas .producto__foto:nth-of-type(1)` | (1,4,0) | vista activa del visor del editorial |
 | `.opciones__entrada:checked + .opciones__pastilla` | (0,3,0) | talla marcada |
 | `.pie .pie__lista a` | (0,3,0) | enlaces del pie |
 
@@ -89,3 +90,4 @@ observarse completo por elemento:
    realmente se pinta, ya con herencia y `var()` resueltos.
 4. En **Console**: `getComputedStyle(document.querySelector(".tarjeta")).color`
    devuelve el valor calculado de cualquier propiedad.
+

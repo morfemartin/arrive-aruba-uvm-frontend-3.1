@@ -2,8 +2,8 @@
    ARRIVE ARUBA · Marketplace — e-actividad 3.1
    ------------------------------------------------------------
    css/producto.css · Estilos exclusivos de la página de
-   producto: migas de pan, ficha del producto, selector de
-   tallas y prendas relacionadas.
+   producto: migas de pan, visor del editorial (:checked),
+   ficha del producto, selector de tallas y prendas relacionadas.
    (realizado por Martin Alejandro Morfe Carballo)
    ============================================================ */
 
@@ -49,7 +49,7 @@
   align-items: start;
 }
 
-/* Panel visual: azulejo grande con la silueta centrada */
+/* Panel visual: visor del editorial con vista activa (:checked) */
 .producto__panel {
   display: grid;
   place-items: center;
@@ -61,17 +61,93 @@
   top: 96px;
 }
 
-.producto__silueta {
-  width: 46%;
-  max-width: 280px;
-  height: auto;
-  /* Entrada tranquila de la prenda al cargar la ficha */
-  animation: aparecer-producto 700ms var(--curva-suave) backwards;
+/* --- Visor del editorial: galería sin JavaScript ---
+   Tres vistas apiladas que se funden con transición de opacidad;
+   el radio :checked decide cuál sube al frente. Los pulgares
+   flotan abajo con desenfoque del fondo (backdrop-filter). */
+.producto__panel { overflow: hidden; }
+
+/* El radio del visor queda fuera de la vista pero accesible al foco */
+.producto__visor {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
 }
 
-@keyframes aparecer-producto {
-  from { opacity: 0; transform: translateY(24px) scale(0.96); }
-  to   { opacity: 1; transform: translateY(0) scale(1); }
+.producto__vistas {
+  position: relative;
+  aspect-ratio: 4 / 5;
+}
+
+.producto__foto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: scale(1.04);
+  transition:
+    opacity var(--duracion-media) var(--curva-suave),
+    transform var(--duracion-lenta) var(--curva-suave);
+}
+
+/* La vista marcada con :checked sube al frente */
+#visor-1:checked ~ .producto__vistas .producto__foto:nth-of-type(1),
+#visor-2:checked ~ .producto__vistas .producto__foto:nth-of-type(2),
+#visor-3:checked ~ .producto__vistas .producto__foto:nth-of-type(3) {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Pulgares: banda flotante con desenfoque de la fotografía de fondo */
+.producto__pulgar {
+  position: absolute;
+  bottom: var(--espacio-3);
+  left: var(--espacio-3);
+  z-index: 1;
+  display: flex;
+  gap: var(--espacio-2);
+  padding: 6px;
+  border-radius: var(--radio-md);
+  background: rgba(240, 240, 229, 0.55);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.producto__pulgar label {
+  width: 58px;
+  aspect-ratio: 1;
+  border: var(--borde-fino);
+  border-radius: var(--radio-md);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform var(--duracion-rapida) var(--curva-suave);
+}
+
+.producto__pulgar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.producto__pulgar label:hover { transform: translateY(-2px); }
+
+/* Pulgar activo: anillo zafiro sobre la vista en curso */
+#visor-1:checked ~ .producto__pulgar label:nth-of-type(1),
+#visor-2:checked ~ .producto__pulgar label:nth-of-type(2),
+#visor-3:checked ~ .producto__pulgar label:nth-of-type(3) {
+  border-color: var(--azul-zafiro);
+  box-shadow: 0 0 0 3px var(--azul-niebla);
+}
+
+/* Foco visible para teclado, coherente con el resto del sitio */
+#visor-1:focus-visible ~ .producto__pulgar label:nth-of-type(1),
+#visor-2:focus-visible ~ .producto__pulgar label:nth-of-type(2),
+#visor-3:focus-visible ~ .producto__pulgar label:nth-of-type(3) {
+  outline: 3px solid var(--azul-lago);
+  outline-offset: 2px;
 }
 
 /* Panel de información */
@@ -107,3 +183,4 @@
 .rejilla-productos--tres {
   grid-template-columns: repeat(3, 1fr);
 }
+

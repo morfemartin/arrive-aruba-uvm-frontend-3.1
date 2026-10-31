@@ -59,7 +59,9 @@
   box-shadow: var(--sombra-lg), inset 0 0 0 2px rgba(240, 240, 229, 0.25);
 }
 
-/* El paisaje interior: atardecer en degradado */
+/* El paisaje interior: fotografía real de Aruba mezclada con el
+   degradado del atardecer mediante background-blend-mode. Mientras
+   la foto carga (o si falla), el degradado dibuja el mismo atardecer. */
 .ventana__mar {
   display: block;
   width: 100%;
@@ -67,8 +69,10 @@
   border-radius: 50%;
   overflow: hidden;
   background:
-    radial-gradient(circle at 62% 30%, #f5a169 0%, #e88b5a 9%, transparent 26%),
-    linear-gradient(180deg, #5f8bb8 0%, #386395 46%, #2c4e78 62%, #1c2b3a 100%);
+    radial-gradient(circle at 62% 30%, rgba(245, 161, 105, 0.55) 0%, rgba(232, 139, 90, 0.35) 9%, transparent 26%),
+    linear-gradient(180deg, #5f8bb8 0%, #386395 46%, #2c4e78 62%, #1c2b3a 100%),
+    url("../assets/img/aruba-hero.jpg") center / cover no-repeat;
+  background-blend-mode: screen, soft-light, normal;
   animation: mecerse 12s ease-in-out infinite alternate;
 }
 
@@ -213,3 +217,63 @@
   font-size: 0.85rem;
   color: var(--tinta-suave);
 }
+
+/* ============================================================
+   5 · PELÍCULA — la atmósfera de la isla
+   Banda a sangre con la fotografía del hero de la marca.
+   El movimiento es un Ken Burns dibujado con @keyframes y el
+   velo (mix-blend-mode) garantiza la lectura del lema.
+   ============================================================ */
+.pelicula {
+  position: relative;
+  min-height: 58vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-bottom: var(--borde-fino);
+  background: var(--azul-zafiro-profundo);
+}
+
+/* La fotografía cubre la banda y se mueve despacio (Ken Burns) */
+.pelicula__foto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(1.05);
+  animation: ken-burns 26s ease-in-out infinite alternate;
+}
+
+@keyframes ken-burns {
+  from { transform: scale(1) translate(0, 0); }
+  to   { transform: scale(1.12) translate(-1.5%, 1%); }
+}
+
+/* Velo: oscurece la fotografía donde el degradado lo pide */
+.pelicula__velo {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(28, 43, 58, 0.12) 0%, rgba(56, 99, 149, 0.44) 100%);
+  mix-blend-mode: multiply;
+}
+
+/* El lema flota sobre la fotografía con la tipografía editorial */
+.pelicula__lema {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  padding: var(--espacio-4);
+  font-family: var(--fuente-editorial);
+  font-size: clamp(1.9rem, 4.5vw, 3.2rem);
+  letter-spacing: 0.02em;
+  color: var(--crema-cannoli);
+  text-shadow: 0 2px 24px rgba(28, 43, 58, 0.6);
+  animation: aparecer 700ms var(--curva-suave) backwards;
+}
+
+/* Quien prefiere menos movimiento ve la fotografía en reposo */
+@media (prefers-reduced-motion: reduce) {
+  .pelicula__foto { animation: none; }
+}
+
