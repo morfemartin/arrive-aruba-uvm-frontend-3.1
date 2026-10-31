@@ -86,7 +86,7 @@ arrive-aruba-uvm-frontend-3.1/
     ├── arbol-dom.md      ← árbol DOM del HTML (entregable)
     ├── arbol-cssom.md    ← árbol CSSOM (entregable)
     ├── informe.md        ← informe de desarrollo (entregable)
-    └── mockups/          ← mockups SVG importables a Figma (entregable)
+    └── mockups/          ← mockups SVG importados a Figma (entregable)
 ```
 
 ## Cómo ver el proyecto — paso a paso
@@ -159,8 +159,6 @@ Abre `http://localhost:8000` en tu navegador.
 Las seis maquetas del sitio se consolidaron en Figma a partir de los SVG de `docs/mockups/`:
 
 **[Arrive Aruba · e-actividad 3.1 — archivo de Figma](https://www.figma.com/design/BidcCGWUPRx9ITaIYS9Xxc/Arrive-Aruba-%C2%B7-e-actividad-3.1?node-id=0-1)**
-
-![Vista del archivo de Figma con las seis maquetas del sitio](docs/mockups/figma-captura.png)
 
 > Si el enlace de Figma solicita permiso de acceso, las maquetas también pueden
 > verse directamente en la carpeta `docs/mockups/` del repositorio.
