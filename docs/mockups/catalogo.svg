@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" font-family="Arial, Helvetica, sans-serif" role="img" aria-labelledby="t d">
+  <!-- Mockup · Página de CATÁLOGO · e-actividad 3.1 (realizado por Martin Morfe Flores.°.) -->
+  <title id="t">Mockup · Catálogo · Arrive Aruba</title>
+  <desc id="d">Maqueta del catálogo: título, chips de filtro por categoría y rejilla de ocho tarjetas de producto.</desc>
+  <rect width="1280" height="800" fill="#f0f0e5"/>
+
+  <!-- Cabecera -->
+  <rect width="1280" height="56" fill="#ffffff" stroke="#d8ddd0"/>
+  <circle cx="40" cy="28" r="9" fill="#386395"/>
+  <rect x="56" y="20" width="90" height="14" rx="7" fill="#1c2b3a"/>
+  <rect x="840" y="22" width="46" height="10" rx="5" fill="#4a5b6c"/>
+  <rect x="900" y="22" width="54" height="10" rx="5" fill="#4a5b6c"/>
+  <rect x="966" y="22" width="46" height="10" rx="5" fill="#4a5b6c"/>
+  <rect x="1024" y="22" width="54" height="10" rx="5" fill="#386395"/>
+  <rect x="1090" y="22" width="66" height="10" rx="5" fill="#4a5b6c"/>
+
+  <!-- Título de página -->
+  <text x="70" y="120" font-size="11" fill="#5f8bb8" letter-spacing="3">TODO PARA EL VIAJE</text>
+  <rect x="70" y="136" width="380" height="30" rx="10" fill="#1c2b3a"/>
+  <rect x="70" y="176" width="300" height="10" rx="5" fill="#4a5b6c"/>
+
+  <!-- Chips de filtro (el activo en zafiro) -->
+  <rect x="70"  y="210" width="60"  height="28" rx="14" fill="#386395"/>
+  <text x="86" y="228" font-size="11" fill="#ffffff">Todo</text>
+  <rect x="140" y="210" width="90"  height="28" rx="14" fill="#ffffff" stroke="#d8ddd0"/>
+  <text x="156" y="228" font-size="11" fill="#4a5b6c">Camisería</text>
+  <rect x="240" y="210" width="60"  height="28" rx="14" fill="#ffffff" stroke="#d8ddd0"/>
+  <text x="256" y="228" font-size="11" fill="#4a5b6c">Playa</text>
+  <rect x="310" y="210" width="90"  height="28" rx="14" fill="#ffffff" stroke="#d8ddd0"/>
+  <text x="326" y="228" font-size="11" fill="#4a5b6c">Accesorios</text>
+  <rect x="410" y="210" width="76"  height="28" rx="14" fill="#ffffff" stroke="#d8ddd0"/>
+  <text x="426" y="228" font-size="11" fill="#4a5b6c">Calzado</text>
+
+  <!-- Rejilla 4 x 2 de tarjetas -->
+  <g>
+    <rect x="70"  y="270" width="270" height="150" rx="16" fill="#ffffff" stroke="#d8ddd0"/><rect x="70"  y="270" width="270" height="98" rx="16" fill="#dce6f0"/><rect x="70"  y="378" width="100" height="11" rx="5" fill="#1c2b3a"/><rect x="70"  y="396" width="52" height="9" rx="4" fill="#386395"/>
+    <rect x="360" y="270" width="270" height="150" rx="16" fill="#ffffff" stroke="#d8ddd0"/><rect x="360" y="270" width="270" height="98" rx="16" fill="#fbfaf3"/><rect x="360" y="378" width="100" height="11" rx="5" fill="#1c2b3a"/><rect x="360" y="396" width="52" height="9" rx="4" fill="#386395"/>
+    <rect x="650" y="270" width="270" height="150" rx="16" fill="#ffffff" stroke="#d8ddd0"/><rect x="650" y="270" width="270" height="98" rx="16" fill="#fdf0e2"/><rect x="650" y="378" width="100" height="11" rx="5" fill="#1c2b3a"/><rect x="650" y="396" width="52" height="9" rx="4" fill="#386395"/>
+    <rect x="940" y="270" width="270" height="150" rx="16" fill="#ffffff" stroke="#d8ddd0"/><rect x="940" y="270" width="270" height="98" rx="16" fill="#e7eff6"/><rect x="940" y="378" width="100" height="11" rx="5" fill="#1c2b3a"/><rect x="940" y="396" width="52" height="9" rx="4" fill="#386395"/>
+    <rect x="70"  y="440" width="270" height="150" rx="16" fill="#ffffff" stroke="#d8ddd0"/><rect x="70"  y="440" width="270" height="98" rx="16" fill="#eef3ec"/><rect x="70"  y="548" width="100" height="11" rx="5" fill="#1c2b3a"/><rect x="70"  y="566" width="52" height="9" rx="4" fill="#386395"/>
+    <rect x="360" y="440" width="270" height="150" rx="16" fill="#ffffff" stroke="#d8ddd0"/><rect x="360" y="440" width="270" height="98" rx="16" fill="#fbfaf3"/><rect x="360" y="548" width="100" height="11" rx="5" fill="#1c2b3a"/><rect x="360" y="566" width="52" height="9" rx="4" fill="#386395"/>
+    <rect x="650" y="440" width="270" height="150" rx="16" fill="#ffffff" stroke="#d8ddd0"/><rect x="650" y="440" width="270" height="98" rx="16" fill="#dce6f0"/><rect x="650" y="548" width="100" height="11" rx="5" fill="#1c2b3a"/><rect x="650" y="566" width="52" height="9" rx="4" fill="#386395"/>
+    <rect x="940" y="440" width="270" height="150" rx="16" fill="#ffffff" stroke="#d8ddd0"/><rect x="940" y="440" width="270" height="98" rx="16" fill="#fdf0e2"/><rect x="940" y="548" width="100" height="11" rx="5" fill="#1c2b3a"/><rect x="940" y="566" width="52" height="9" rx="4" fill="#386395"/>
+  </g>
+
+  <!-- Nota de filtro CSS -->
+  <rect x="70" y="616" width="700" height="30" rx="10" fill="#ffffff" stroke="#d8ddd0"/>
+  <rect x="70" y="616" width="4" height="30" fill="#5f8bb8"/>
+  <text x="86" y="635" font-size="10" fill="#4a5b6c">✦ El filtro funciona solo con CSS (:checked)</text>
+
+  <!-- Pie de página -->
+  <rect y="700" width="1280" height="100" fill="#2c4e78"/>
+  <circle cx="70" cy="730" r="8" fill="#f0f0e5"/>
+  <rect x="86" y="724" width="90" height="12" rx="6" fill="#f0f0e5"/>
+  <rect x="600" y="724" width="70" height="8" rx="4" fill="#5f8bb8"/>
+  <rect x="880" y="724" width="110" height="8" rx="4" fill="#5f8bb8"/>
+  <text x="640" y="790" font-size="10" fill="#f0f0e5" opacity="0.7">© 2026 Arrive Aruba · e-actividad 3.1 · Mockup 2/6</text>
+</svg>
