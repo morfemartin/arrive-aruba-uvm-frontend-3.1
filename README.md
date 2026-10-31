@@ -151,7 +151,19 @@ Abre `http://localhost:8000` en tu navegador.
 - **Árbol DOM:** [`docs/arbol-dom.md`](docs/arbol-dom.md)
 - **Árbol CSSOM:** [`docs/arbol-cssom.md`](docs/arbol-cssom.md)
 - **Informe de desarrollo:** [`docs/informe.md`](docs/informe.md)
-- **Mockups y estructura de diseño:** `docs/mockups/` (SVG listos para importar a Figma)
+- **Mockups y estructura de diseño:** `docs/mockups/` (SVG importados a Figma)
+- **Archivo de Figma con las seis maquetas:** [Arrive Aruba · e-actividad 3.1 — Figma](https://www.figma.com/design/BidcCGWUPRx9ITaIYS9Xxc/Arrive-Aruba-%C2%B7-e-actividad-3.1?node-id=0-1)
+
+## Mockups en Figma
+
+Las seis maquetas del sitio se consolidaron en Figma a partir de los SVG de `docs/mockups/`:
+
+**[Arrive Aruba · e-actividad 3.1 — archivo de Figma](https://www.figma.com/design/BidcCGWUPRx9ITaIYS9Xxc/Arrive-Aruba-%C2%B7-e-actividad-3.1?node-id=0-1)**
+
+![Vista del archivo de Figma con las seis maquetas del sitio](docs/mockups/figma-captura.png)
+
+> Si el enlace de Figma solicita permiso de acceso, las maquetas también pueden
+> verse directamente en la carpeta `docs/mockups/` del repositorio.
 
 ## Procedencia de los recursos
 
