@@ -3,7 +3,7 @@
 <p align="center">
   Marketplace de ropa resort construido con HTML y CSS, con efectos visuales sobre la identidad
   de la marca Arrive Aruba (proyecto propio del autor) y una base de datos en el navegador.<br>
-  <strong>e-actividad 3.1 · Diseño web con HTML &amp; CSS · Frontend</strong>
+  <strong>e-actividad 3.1 · Diseño web con HTML & CSS · Frontend</strong>
 </p>
 
 <p align="center">
@@ -22,7 +22,7 @@
 |---|---|
 | Asignatura | Frontend (FrontEndIVIVFI2026C) |
 | Docente | Prof. Anggelo Huz |
-| Actividad | e-actividad 3.1 — Diseño web con HTML &amp; CSS (10 %) |
+| Actividad | e-actividad 3.1 — Diseño web con HTML & CSS (10 %) |
 | Entrega | 31 de octubre de 2026, 23:59 |
 | Modalidad | Equipo de 2 integrantes |
 
@@ -51,7 +51,7 @@ del navegador (Web Storage API) y cada entrega se revisa página por página.
   nosotros e historial de pedidos.
 - **Sistema de diseño con custom properties**: toda la paleta, espaciados, sombras y
   movimiento viven como tokens en `css/base.css`.
-- **La ventana del avís**: hero ilustrado 100 % con degradados y animaciones CSS, sin imágenes.
+- **La ventana del avión**: hero ilustrado 100 % con degradados y animaciones CSS, sin imágenes.
 - **Efectos CSS** en cada interacción: elevación de tarjetas, subrayado animado del menú,
   chips de filtro, desenfoque de la cabecera (`backdrop-filter`).
 - **Base de datos real en el navegador**: el formulario valida y guarda cada reserva con
@@ -165,5 +165,5 @@ fuentes libres servidas desde Google Fonts con licencia OFL.
 
 | Etapa | Estado |
 |---|---|
-| e-actividad 3.1 (HTML &amp; CSS) | ✅ Entregada — tag `e3.1` |
+| e-actividad 3.1 (HTML & CSS) | ✅ Entregada — tag `e3.1` |
 | Validación W3C | ✅ Automatizada en cada push (GitHub Actions) |
